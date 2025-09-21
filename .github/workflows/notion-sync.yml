@@ -1,0 +1,20 @@
+name: Sync Notion to GitHub
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'   # Runs daily at 6 AM UTC
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Notion to GitHub
+        uses: yannbertrand/notion2github@main
+        with:
+          notion_token: ${{ secrets.NOTION_TOKEN }}
+          notion_page_id: ${{ secrets.NOTION_PAGE_ID }}
+          github_token: ${{ secrets.GH_TOKEN }}
