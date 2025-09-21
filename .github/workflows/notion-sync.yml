@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Sync Notion to GitHub
-        uses: YannBertrand/notion2github@main
+        uses: younho9/notion2github@v1.1.0
         with:
           notion_token: ${{ secrets.NOTION_TOKEN }}
           notion_page_id: ${{ secrets.NOTION_PAGE_ID }}
